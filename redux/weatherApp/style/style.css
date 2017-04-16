@@ -1,0 +1,33 @@
+*, *:after, *:before {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+.container {
+	padding-top: 20px;
+	border-top: 1px solid black;
+}
+
+li:hover {
+	cursor: pointer;
+	background-color: beige;
+}
+
+td, th {
+	vertical-align: middle !important;
+	text-align: center !important;
+}
+
+svg {
+	height: 150px;
+}
+
+.input-group {
+	padding-bottom: 20px;
+}
+
+td:first-of-type, td:first-of-type > div {
+	height: 200px;
+	width: 250px;
+}
