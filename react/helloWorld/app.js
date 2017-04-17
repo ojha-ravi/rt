@@ -2,9 +2,42 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 // Very Basic
+// export class App extends React.Component {
+//   render() {
+//     return <div>Hello World</div>;
+//   }
+// }
+
+// On person asked me about how communication happens,
+// This is the example showing that
 export class App extends React.Component {
+  constructor(props) {
+  super(props);
+    this.state = {
+      data: 'Initial data...'
+    }
+    this.updateState = this.updateState.bind(this);
+  };
+
+  updateState(e) {
+    this.setState({data: e.target.value});
+  }
+
   render() {
-    return <div>Hello World</div>;
+    return <div>
+      <Content myDataProp = {this.state.data} 
+        updateStateProp = {this.updateState}></Content>
+    </div>;
+  }
+}
+
+class Content extends React.Component {
+  render() {
+    return <div>
+      <input type = "text" value = {this.props.myDataProp} 
+        onChange = {this.props.updateStateProp} />
+      <h3>{this.props.myDataProp}</h3>
+    </div>;
   }
 }
 
@@ -83,37 +116,4 @@ export class App extends React.Component {
   //     <h4>{this.state.data}</h4>
   //   </div>;
   // }
-// }
-
-
-// A Bit complex Example
-// class App extends React.Component {
-//   constructor(props) {
-//   super(props);
-//     this.state = {
-//       data: 'Initial data...'
-//     }
-//     this.updateState = this.updateState.bind(this);
-//   };
-
-//   updateState(e) {
-//     this.setState({data: e.target.value});
-//   }
-
-//   render() {
-//     return <div>
-//       <Content myDataProp = {this.state.data} 
-//       updateStateProp = {this.updateState}></Content>
-//     </div>;
-//   }
-// }
-
-// class Content extends React.Component {
-//   render() {
-//     return <div>
-//       <input type = "text" value = {this.props.myDataProp} 
-//       onChange = {this.props.updateStateProp} />
-//       <h3>{this.props.myDataProp}</h3>
-//     </div>;
-//   }
 // }
