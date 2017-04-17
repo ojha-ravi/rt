@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server -a localhost -p 9090",
+    "start": "http-server -a localhost -p 9091",
     "test": "mocha **/**/*.spec.js",
     "preInstall": "npm install && jspm install"
   },

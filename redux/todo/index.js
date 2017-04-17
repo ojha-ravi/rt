@@ -17,8 +17,8 @@ let nextTodoId = 0;
 const TodoApp = ({ store }) => {
 	return <div>
 		<AddTodo store={store}></AddTodo>
-		<VisibleTodoList store={store}></VisibleTodoList>
 		<Footer store={store}></Footer>
+		<VisibleTodoList store={store}></VisibleTodoList>
 	</div>;
 }
 
@@ -69,7 +69,7 @@ class VisibleTodoList extends React.Component {
 }
 
 const TodoList = ({todos, onTodoClick}) => {
-	return <ul>
+	return <ul className="list-group">
 		{
 			todos.map(todo => {
 				return <Todo
@@ -81,7 +81,7 @@ const TodoList = ({todos, onTodoClick}) => {
 };
 
 const Todo = ({onClick, completed, text}) => {
-	return <li onClick={onClick} style={{textDecoration: completed ? "line-through": "none"}}>{text}</li>;
+	return <li className="list-group-item" onClick={onClick} style={{textDecoration: completed ? "line-through": "none"}}>{text}</li>;
 };
 
 const Footer = ({ store }) => {
