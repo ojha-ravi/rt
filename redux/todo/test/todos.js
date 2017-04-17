@@ -1,6 +1,6 @@
 // import { createStore } from "redux";
 const createStore = require("redux").createStore;
-// const combineReducer = require("redux").combineReducers;
+const combineReducer = require("redux").combineReducers;
 
 const todo = (state, action) => {
 	switch(action.type) {
@@ -64,21 +64,6 @@ const visibilityFilter = (state = "SHOW_ALL", action) => {
 // });
 
 // ES6
-
-const combineReducer = (reducers) => {
-	return (state = {}, action) => {
-		return Object.keys(reducers).reduce(
-			(nextState, key) => {
-				nextState[key] = reducers[key](
-					state[key],
-					action
-				);
-				return nextState
-			},
-			{}
-		);
-	}
-};
 
 const todoApp = combineReducer({
 	todos,
